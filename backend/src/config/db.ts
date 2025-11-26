@@ -1,10 +1,12 @@
+console.log("USANDO db.ts RECIENTE");
+import "dotenv/config";
 import mongoose from "mongoose";
 
 const connectDB = async (): Promise<void> => {
   try {
-    const mongoURI = "1";
+    const mongoURI = process.env.MONGO_URI;
     if (!mongoURI) {
-      throw new Error("MONGODB_URL is not defined in environment variables");
+      throw new Error("MONGO_URI is not defined in environment variables");
     }
 
     const conn = await mongoose.connect(mongoURI);
