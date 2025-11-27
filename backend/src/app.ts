@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import movementsRoutes from "./routes/movements";
 
 const app = express();
 
@@ -11,8 +12,8 @@ app.use(
   })
 );
 
-
 //routes
+app.use("/api/movements", movementsRoutes);
 
 //get
 app.get("/", (req, res) => {
