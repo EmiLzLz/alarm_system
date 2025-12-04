@@ -8,39 +8,43 @@ import type { Movement } from "../types/Movement";
 export const useMovements = () => {
   const [movements, setMovements] = useState<Movement[]>([]);
   const [recentMovement, setRecentMovement] = useState<Movement | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [loadingMovements, setLoadingMovements] = useState(false);
+  const [loadingRecentMove, setLoadingRecentMove] = useState(false);
+  const [errorMovements, setErrorMovements] = useState<string | null>(null);
+  const [errorRecentMove, setErrorRecentMove] = useState<string | null>(null);
 
   const fetchMovements = async () => {
     try {
-      setLoading(true);
+      setLoadingMovements(true);
       const data = await getAllMovements();
       setMovements(data);
     } catch (error) {
-      setError("Failed to fetch movements");
+      setErrorMovements("Failed to fetch movements");
     } finally {
-      setLoading(false);
+      setLoadingMovements(false);
     }
   };
 
   const fetchRecentMovement = async () => {
     try {
-      setLoading(true);
+      setLoadingRecentMove(true);
       const data = await getRecentMovement();
       setRecentMovement(data);
     } catch (error) {
-      setError("Failed to fetch recent movement");
+      setErrorRecentMove("Failed to fetch recent movement");
     } finally {
-      setLoading(false);
+      setLoadingRecentMove(false);
     }
   };
 
   return {
     movements,
     recentMovement,
-    loading,
+    loadingMovements,
+    loadingRecentMove,
     fetchMovements,
     fetchRecentMovement,
-    error,
+    errorMovements,
+    errorRecentMove
   };
 };
