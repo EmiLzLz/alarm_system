@@ -31,8 +31,9 @@ function App() {
   return (
     <>
       <div className="container">
-        <MovementsList movements={movements} loading={loadingMovements} error={errorMovements} />
         <RecentMovement recentMovement={recentMovement} loading={loadingRecentMove} error={errorRecentMove}/>
+        <MovementsList movements={movements} loading={loadingMovements} error={errorMovements} />
+        
       </div>
     </>
   );
