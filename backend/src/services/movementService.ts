@@ -22,7 +22,7 @@ const movementService = {
     console.log("SERVICE: Fetching the most recent item");
 
     const recentItem = await Movement.findOne({})
-      .sort({ timestamp: -1 }) // Sort by timestamp in descending order
+      .sort({ createdAt: -1 }) // Sort by timestamp in descending order
       .limit(1) // Get one result (findOne already do it, this is just to clarify)
       .exec(); //execute the query
 

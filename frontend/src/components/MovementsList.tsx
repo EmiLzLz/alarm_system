@@ -27,7 +27,7 @@ function MovementsList({ movements, loading, error }: MovementsListProps) {
               <p>Duration: {movement.duration}</p>
             </div>
             <div className="timestamp">
-              <p>{new Date(movement.timestamp * 1000).toLocaleString()}</p>
+              <p>{new Date(movement.createdAt).toLocaleString()}</p>
             </div>
           </div>
         ))}

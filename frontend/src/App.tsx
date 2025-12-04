@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import "./App.css";
 import MovementsList from "./components/MovementsList";
 import { useMovements } from "./hooks/useMovements";
+import RecentMovement from "./components/RecentMovement";
 function App() {
   const {
     movements,
@@ -21,15 +22,17 @@ function App() {
     const interval = setInterval(() => {
       fetchMovements();
       fetchRecentMovement();
-    }, 5000);
+    }, 15000);
 
     return () => clearInterval(interval);
-  }, [fetchMovements, fetchRecentMovement]);
+  }, []);
+
 
   return (
     <>
       <div className="container">
         <MovementsList movements={movements} loading={loadingMovements} error={errorMovements} />
+        <RecentMovement recentMovement={recentMovement} loading={loadingRecentMove} error={errorRecentMove}/>
       </div>
     </>
   );
