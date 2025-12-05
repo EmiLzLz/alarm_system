@@ -1,4 +1,3 @@
-import React from "react";
 import { Loader2, AlertCircle, Activity, Clock, Calendar } from "lucide-react";
 import type { Movement } from "../types/Movement";
 

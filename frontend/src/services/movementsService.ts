@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Movement } from "../types/Movement";
 
-const API_BASE_URL = "http://localhost:8080/api/movements";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080/api/movements";
 
 export const getAllMovements = async (): Promise<Movement[]> => {
   try {
