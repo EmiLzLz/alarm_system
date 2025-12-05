@@ -87,8 +87,6 @@ A comprehensive IoT motion detection system built with ESP8266, Node.js, MongoDB
 | Buzzer + | D7 (GPIO13) | Positive terminal |
 | Buzzer - | GND | Ground |
 
-![Hardware Setup](./docs/images/hardware-setup.jpg)
-
 ## 💻 Software Stack
 
 ### Backend
