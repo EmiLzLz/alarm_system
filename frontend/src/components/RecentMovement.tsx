@@ -6,19 +6,14 @@ import {
   Clock,
   Calendar,
 } from "lucide-react";
-import type { Movement } from "../types/Movement";
+import { useMovementsStore } from "../store/movementsStore";
 
-type RecentMovementProps = {
-  recentMovement: Movement | null;
-  loading: boolean;
-  error: string | null;
-};
+function RecentMovement() {
 
-function RecentMovement({
-  recentMovement,
-  loading,
-  error,
-}: RecentMovementProps) {
+  const recentMovement = useMovementsStore((state) => state.recentMovement)
+  const loading = useMovementsStore((state) => state.loadingRecentMove)
+  const error = useMovementsStore((state) => state.errorRecentMove)
+
   if (loading) {
     return (
       <div className="loading-message">

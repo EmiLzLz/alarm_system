@@ -1,13 +1,13 @@
 import { Loader2, AlertCircle, Activity, Clock, Calendar } from "lucide-react";
-import type { Movement } from "../types/Movement";
+import { useMovementsStore } from "../store/movementsStore";
 
-type MovementsListProps = {
-  movements: Movement[];
-  loading: boolean;
-  error: string | null;
-};
 
-function MovementsList({ movements, loading, error }: MovementsListProps) {
+function MovementsList() {
+
+  const movements = useMovementsStore((state) => state.movements)
+  const loading = useMovementsStore((state) => state.loadingMovements)
+  const error = useMovementsStore((state) => state.errorMovements)
+
   if (loading) {
     return (
       <div className="loading-message">
