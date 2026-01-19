@@ -1,4 +1,4 @@
 export interface SmartPolling {
-  fetchFunctions: () => Promise<void>[];
+  fetchFunctions: (() => Promise<void>)[];
   interval: number;
 }
