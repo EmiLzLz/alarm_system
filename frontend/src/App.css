@@ -1,12 +1,13 @@
 /* Recent Movement Component Styles */
 
 .recent-container {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
   background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
   border: 1px solid #00ff88;
   border-radius: 4px;
   padding: 2rem;
-  box-shadow: 0 0 20px rgba(0, 255, 136, 0.15),
+  box-shadow:
+    0 0 20px rgba(0, 255, 136, 0.15),
     inset 0 0 30px rgba(0, 255, 136, 0.03);
   position: relative;
   overflow: hidden;
@@ -16,7 +17,8 @@
 
 .recent-container:hover {
   border-color: #00ffaa;
-  box-shadow: 0 0 30px rgba(0, 255, 136, 0.25),
+  box-shadow:
+    0 0 30px rgba(0, 255, 136, 0.25),
     inset 0 0 40px rgba(0, 255, 136, 0.05);
   transform: translateY(-2px);
 }
@@ -271,7 +273,6 @@
   }
 }
 
-
 /* Movements List*/
 /* Movements List Component Styles */
 
@@ -305,7 +306,7 @@
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .movements-container {
@@ -329,7 +330,7 @@
 }
 
 .movement-box::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -356,7 +357,7 @@
   font-weight: 600;
   color: #ffffff;
   line-height: 1.4;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   transition: color 0.3s ease;
 }
 
@@ -374,7 +375,7 @@
 .movement-timestamp {
   margin: 0;
   font-size: 0.875rem;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -415,11 +416,11 @@
 
 /* Empty state */
 .movements-container:empty::after {
-  content: 'No movements detected yet';
+  content: "No movements detected yet";
   display: block;
   text-align: center;
   color: #718096;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 0.95rem;
   padding: 2rem;
   grid-column: 1 / -1;
@@ -463,3 +464,43 @@
     font-size: 0.8125rem;
   }
 }
+
+/* Refresh Button */
+.refresh-button-section {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.refresh-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 14px;
+  cursor: pointer;
+  box-shadow:
+    0 0 20px rgba(0, 255, 136, 0.15),
+    inset 0 0 30px rgba(0, 255, 136, 0.03);
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  border: 1px solid #00ff88;
+  border-radius: 4px;
+  transition: transform 0.2s ease-in, box-shadow 0.4s ease-in-out, color 0.4s ease-out;
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  color: white;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
+
+.refresh-button:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 0 30px rgba(0, 255, 136, 0.25),
+    inset 0 0 40px rgba(0, 255, 136, 0.05);
+  transform: translateY(-2px);
+  color: #00ff88;
+}
+
+.refresh-button:active .refresh-button-icon{
+  animation: spin 0.9s linear;
+}
+
