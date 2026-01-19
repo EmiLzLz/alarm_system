@@ -3,29 +3,25 @@ import "./App.css";
 import MovementsList from "./components/MovementsList";
 import RecentMovement from "./components/RecentMovement";
 import { useMovementsStore } from "./store/movementsStore";
+import { useSmartPolling } from "./hooks/useSmartPolling";
+
 function App() {
-  const fetchMovementsAsync = useMovementsStore((state) => state.fetchMovementsAsync)
-  const fetchRecentMovementAsync = useMovementsStore((state) => state.fetchRecentMovementAsync)
-
-  useEffect(() => {
-    fetchMovementsAsync();
-    fetchRecentMovementAsync();
-
-    const interval = setInterval(() => {
-      fetchMovementsAsync();
-      fetchRecentMovementAsync();
-    }, 15000);
-
-    return () => clearInterval(interval);
-  }, []);
-
+  const fetchMovementsAsync = useMovementsStore(
+    (state) => state.fetchMovementsAsync,
+  );
+  const fetchRecentMovementAsync = useMovementsStore(
+    (state) => state.fetchRecentMovementAsync,
+  );
+  const { forceRefresh } = useSmartPolling({
+    fetchFunctions: [fetchMovementsAsync, fetchRecentMovementAsync],
+    interval: 15000,
+  });
 
   return (
     <>
       <div className="container">
         <RecentMovement />
         <MovementsList />
-        
       </div>
     </>
   );

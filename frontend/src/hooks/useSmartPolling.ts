@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import type { SmartPolling } from "../types/SmartPolling";
 
 export function useSmartPolling({ fetchFunctions, interval }: SmartPolling) {
@@ -31,7 +31,7 @@ export function useSmartPolling({ fetchFunctions, interval }: SmartPolling) {
         }, interval);
       }
     };
-    
+
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
@@ -40,11 +40,11 @@ export function useSmartPolling({ fetchFunctions, interval }: SmartPolling) {
   }, [fetchFunctions, interval]);
 
   // forcerefresh function
-  function forcerefresh() {
+  function forceRefresh() {
     fetchFunctions.forEach((fn) => fn());
   }
 
   return {
-    forcerefresh,
+    forceRefresh,
   };
 }
