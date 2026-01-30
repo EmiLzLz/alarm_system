@@ -1,3 +1,10 @@
+/**
+ * The `useSmartPolling` function in TypeScript is used to implement smart polling functionality in
+ * React components.
+ * @param {SmartPolling}  - The `useSmartPolling` function takes an object as a parameter with the
+ * following properties:
+ * @returns The `useSmartPolling` custom hook is returning an object with a `forceRefresh` function.
+ */
 import { useEffect, useRef } from "react";
 import type { SmartPolling } from "../types/SmartPolling";
 

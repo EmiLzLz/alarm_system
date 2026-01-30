@@ -7,20 +7,15 @@ import {
   Calendar,
 } from "lucide-react";
 import { useMovementsStore } from "../store/movementsStore";
+import RecentMovementSkeleton from "./skeletons/RecentMovementSkeleton";
 
 function RecentMovement() {
-
-  const recentMovement = useMovementsStore((state) => state.recentMovement)
-  const loading = useMovementsStore((state) => state.loadingRecentMove)
-  const error = useMovementsStore((state) => state.errorRecentMove)
+  const recentMovement = useMovementsStore((state) => state.recentMovement);
+  const loading = useMovementsStore((state) => state.loadingRecentMove);
+  const error = useMovementsStore((state) => state.errorRecentMove);
 
   if (loading) {
-    return (
-      <div className="loading-message">
-        <Loader2 className="icon-spin" size={20} />
-        <span>Loading most recent movement detection...</span>
-      </div>
-    );
+    return <RecentMovementSkeleton />;
   }
 
   if (error) {

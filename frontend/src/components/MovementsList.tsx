@@ -1,5 +1,6 @@
 import { Loader2, AlertCircle, Activity, Clock, Calendar } from "lucide-react";
 import { useMovementsStore } from "../store/movementsStore";
+import MovementsListSkeleton from "./skeletons/MovementsListSkeleton";
 
 
 function MovementsList() {
@@ -10,10 +11,7 @@ function MovementsList() {
 
   if (loading) {
     return (
-      <div className="loading-message">
-        <Loader2 className="icon-spin" size={20} />
-        <span>Loading notifications...</span>
-      </div>
+      <MovementsListSkeleton/>
     );
   }
 
