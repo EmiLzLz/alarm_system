@@ -19,6 +19,7 @@ function App() {
 
   return (
     <>
+      <h1 className="sr-only">IoT Movement Detection Dashboard</h1>
       <div className="container">
         <RecentMovement />
         <div className="refresh-button-section">
