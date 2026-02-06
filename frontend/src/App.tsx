@@ -18,7 +18,7 @@ function App() {
   });
 
   return (
-    <>
+    <main>
       <h1 className="sr-only">IoT Movement Detection Dashboard</h1>
       <div className="container">
         <RecentMovement />
@@ -27,7 +27,7 @@ function App() {
         </div>
         <MovementsList />
       </div>
-    </>
+    </main>
   );
 }
 

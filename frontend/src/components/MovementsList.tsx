@@ -1,4 +1,4 @@
-import { Loader2, AlertCircle, Activity, Clock, Calendar } from "lucide-react";
+import { AlertCircle, Activity, Clock, Calendar } from "lucide-react";
 import { useMovementsStore } from "../store/movementsStore";
 import MovementsListSkeleton from "./skeletons/MovementsListSkeleton";
 
